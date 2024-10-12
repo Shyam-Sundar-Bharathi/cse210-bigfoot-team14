@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script src="dist/bigfoot.js"></script>
+</head>
+    <body>
+        <p>
+            <sup id="fnref:1">
+                <a href="#fn:1" rel="footnote">1</a>
+            </sup>
+        </p>
+
+        <div class="footnotes"><ol>
+            <li class="footnote" id="fn:1">
+                <p>footnote.<a href="#fnref:1" title="return to article"> ↩</a><p>
+            </li>
+        </ol></div>
+
+        <script>
+            $.bigfoot();
+        </script>
+    </body>
+</html>
