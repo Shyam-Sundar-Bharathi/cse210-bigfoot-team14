@@ -2,7 +2,7 @@
 
 ## 1. Architecture Design
 
-Bigfoot.js is designed as a jQuery plugin that enhances HTML footnotes. The architecture follows a modular approach within a single file:
+Bigfoot.js is designed as a jQuery plugin that enhances HTML footnotes. The architecture follows a modular approach within a **single file**:
 
 1. **Plugin Initialization**: The main function `$.bigfoot()` is called to initialize the plugin.
 2. **Configuration**: A comprehensive set of default options allows for customization.
@@ -55,3 +55,5 @@ Disadvantages:
 5. Use of CoffeeScript, which has fallen out of favor.
 6. Outdated build tools and development dependencies.
 7. Potential accessibility issues for screen readers and keyboard navigation.
+
+Overall, this is a simple tool to enhance the functionality of footnotes in HTML. The project structure is fairly simple, easy to understand. However, the code of the tool itself is a bit of a smell. First of all, the code is poor-structured, there is no modularization in this project, making it very hard to read. Even more difficult to debug or trackdown a specific functionality. In addition, the code has no test converage, which makes code changes at a higher risks. We would never know when we step on a footgun, changes might easily break the entire functionality. To develop or build something on top of this requires an overall understanding of the codebase, as well as multiple refactors. The effort doing so might just be as time-consuming as building a new footnote tool from scratch.
