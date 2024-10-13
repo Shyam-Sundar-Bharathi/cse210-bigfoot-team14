@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script src="dist/bigfoot.min.js"></script>
+    <link rel = "stylesheet" href="dist/bigfoot-default.css">
+</head>
+<body>
+    <p>
+        <sup id="fnref:1">
+            <a href="#fn:1" rel="footnote">1</a>
+        </sup>
+    </p>
+
+    <div class="footnotes">
+        <ol>
+            <li class="footnote" id="fn:1">
+                <p>The current date and time is: <span id="current-date-time"></span><a href="#fnref:1" title="return to article"> ↩</a></p>
+            </li>
+        </ol>
+    </div>
+
+    <script>
+        // Function to get current date and time
+        function getCurrentDateTime() {
+            var currentDateTime = new Date();
+            return currentDateTime.toLocaleString();  // Formats date and time as a string
+        }
+
+        // Insert current date and time into the footnote
+        document.getElementById('current-date-time').textContent = getCurrentDateTime();
+
+        // Initialize Bigfoot plugin
+        $.bigfoot();
+    </script>
+</body>
+</html>
