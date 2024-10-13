@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link id="styleSheet" rel="stylesheet" href="dist/bigfoot-default.css">
+    <script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script src="dist/bigfoot.js"></script>
+</head>
+    <body>
+        <h5>Solitude and Leadership</h5>
+        <p>Like the manager<a href="#fn:1" id="fnref:1">1</a>, the head of my department had no genius for organizing or initiative or even order, no particular learning or intelligence, no distinguishing characteristics at all. Just the ability to keep the routine going, and beyond that, as Marlow says, her position had come to her &mdash; why?</p>
+        <p>It means gathering yourself together into a single point rather than letting yourself be dispersed everywhere into a cloud of electronic and social input. It seems to me that Facebook and Twitter and YouTube<a href="#fn:2" id="fnref:2">2</a> are all ultimately just an elaborate excuse to run away from yourself. To avoid the difficult and troubling questions that being human throws in your way. Am I doing the right thing with my life? Do I believe the things I was taught as a child? What do the words I live by—words like duty, honor, and country—really mean? Am I happy?</p>
+        <div class="footnotes">
+            <hr>
+            <ol>
+                <li class="footnote" id="fn:1">
+                    <p>&mdash; and I’m sorry to say this, but like so many people you will meet as you negotiate the bureaucracy of the Army or for that matter of whatever institution you end up giving your talents to after the Army, whether it’s Microsoft or the World Bank or whatever &mdash; <a href="#fnref:1" title="return to article" class="reversefootnote">&#160;&#8617;</a></p>
+                </li>
+                <li class="footnote" id="fn:2">
+                    <p>And just so you don’t think this is a generational thing, TV and radio and magazines and even newspapers, too. <a href="#fnref:2" title="return to article" class="reversefootnote">&#160;&#8617;</a></p>
+                </li>
+            </ol>
+        </div>
+        <div class="changeStyleSheet">
+            <span><button onclick="switchStylesheet(0)">Default</button>
+            <button onclick="switchStylesheet(1)">Numeric</button>
+            <button onclick="switchStylesheet(2)">Bottom</button></span>
+        </div>
+        <script>
+            function switchStylesheet(option) {
+              const stylesheet = document.getElementById('styleSheet');
+              
+              if (option === 1) {
+                stylesheet.setAttribute('href', 'dist/bigfoot-number.css');
+              } 
+              else if(option === 2) {
+                stylesheet.getElementById('styleSheet').setAttribute('href', 'dist/bigfoot-bottom.css');
+              }
+              else{
+                stylesheet.getElementById('styleSheet').setAttribute('href', 'dist/bigfoot-default.css');
+              }
+            }
+        </script>
+        <script>
+            $.bigfoot();
+        </script>
+    </body>
+</html>
