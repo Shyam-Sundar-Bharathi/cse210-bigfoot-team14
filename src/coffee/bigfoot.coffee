@@ -156,6 +156,16 @@
       popoverCreateDelay  : 100
 
       #*
+      # The duration of the animation when the footnote content is being created or removed.
+      #
+      # @access public
+      # @author Mitchel Hsu
+      # @since 0.0.2
+      # @returns {Number}
+      # @default 200
+      animationDuration    : 200
+
+      #*
       # Specifies whether or not the footnote popovers (and the popover tooltip, if it is included in the markup) should be positioned by the script.
       #
       # If this option is `true`, the top of the footnote popover will be positioned at the middle (vertically) of the footnote button, while the left of the popover will be placed a distance from the (horizontal) middle of the button proportional to the footnote button's horizontal position in the window. The popover will be placed above the button if there is insufficient space on the bottom.
@@ -709,6 +719,8 @@
           # Max max-width non-restricting
           $content.css "max-width", 10000
 
+          $content.css "transition-duration", "#{settings.animationDuration}ms"
+
           # Instantiate the max-height for storage and use in repositioning
           # Adjust the max-height for the relevant units
           $contentContainer = $content.find(".bigfoot-footnote__content")
@@ -934,13 +946,15 @@
           $linkedButton.removeClass("is-active is-hover-instantiated is-click-instantiated").addClass "changing"
           $this.removeClass("is-active").addClass "disapearing"
 
+          $this.css "transition-duration", "#{settings.animationDuration}ms"
+
           # Gets rid of the footnote after the timeout
           setTimeout (->
             $this.remove()
             delete popoverStates[footnoteID]
 
             $linkedButton.removeClass "changing"
-          ), timeout
+          ), settings.animationDuration
 
       $buttonsClosed
 

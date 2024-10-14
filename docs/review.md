@@ -5,7 +5,7 @@
 Bigfoot.js is designed as a jQuery plugin that enhances HTML footnotes. The architecture follows a modular approach within a **single file**:
 
 1. **Plugin Initialization**: The main function `$.bigfoot()` is called to initialize the plugin.
-2. **Configuration**: A comprehensive set of default options allows for customization.
+2. **Settings**: A comprehensive set of settings allows user to customize the plugin.
 3. **Core Functionality**: Functions like `createPopover`, `removePopovers`, and `repositionFeet` form the backbone of the plugin's functionality.
 4. **Event Handling**: Functions like `buttonHover` and `touchClick` manage user interactions.
 5. **Utility Functions**: Smaller helper functions are scattered throughout the file.
