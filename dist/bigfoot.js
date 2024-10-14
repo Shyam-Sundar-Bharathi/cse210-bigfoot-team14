@@ -3,6 +3,7 @@
     return $.bigfoot = function(options) {
       var addBreakpoint, baseFontSize, bigfoot, buttonHover, calculatePixelDimension, cleanFootnoteLinks, clickButton, createPopover, defaults, deleteEmptyOrHR, escapeKeypress, footnoteInit, getSetting, makeDefaultCallbacks, popoverStates, positionTooltip, removeBackLinks, removeBreakpoint, removePopovers, replaceWithReferenceAttributes, repositionFeet, roomCalc, settings, touchClick, unhoverFeet, updateSetting, viewportDetails;
       bigfoot = void 0;
+      // Default settings
       defaults = {
         actionOriginalFN: "hide",
         activateCallback: function() {},
@@ -18,6 +19,7 @@
         numberResetSelector: void 0,
         popoverDeleteDelay: 300,
         popoverCreateDelay: 100,
+        animationDuration: 200,
         positionContent: true,
         preventPageScroll: true,
         scope: false,
@@ -25,6 +27,7 @@
         contentMarkup: "<aside class='bigfoot-footnote is-positioned-bottom' data-footnote-number='{{FOOTNOTENUM}}' data-footnote-identifier='{{FOOTNOTEID}}' alt='Footnote {{FOOTNOTENUM}}'> <div class='bigfoot-footnote__wrapper'> <div class='bigfoot-footnote__content'> {{FOOTNOTECONTENT}} </div></div> <div class='bigfoot-footnote__tooltip'></div> </aside>",
         buttonMarkup: "<div class='bigfoot-footnote__container'> <button class='bigfoot-footnote__button' id='{{SUP:data-footnote-backlink-ref}}' data-footnote-number='{{FOOTNOTENUM}}' data-footnote-identifier='{{FOOTNOTEID}}' alt='See Footnote {{FOOTNOTENUM}}' rel='footnote' data-bigfoot-footnote='{{FOOTNOTECONTENT}}'> <svg class='bigfoot-footnote__button__circle' viewbox='0 0 6 6' preserveAspectRatio='xMinYMin'><circle r='3' cx='3' cy='3' fill='white'></circle></svg> <svg class='bigfoot-footnote__button__circle' viewbox='0 0 6 6' preserveAspectRatio='xMinYMin'><circle r='3' cx='3' cy='3' fill='white'></circle></svg> <svg class='bigfoot-footnote__button__circle' viewbox='0 0 6 6' preserveAspectRatio='xMinYMin'><circle r='3' cx='3' cy='3' fill='white'></circle></svg> </button></div>"
       };
+      // Takes properties from the options and add to defaults, overwrite if exists in both
       settings = $.extend(defaults, options);
       popoverStates = {};
       footnoteInit = function() {
@@ -275,6 +278,7 @@
           }
         });
         setTimeout((function() {
+          $popoversCreated.css('transition-duration', settings.animationDuration + 'ms');
           return $popoversCreated.addClass("is-active");
         }), settings.popoverCreateDelay);
         return $popoversCreated;
@@ -380,12 +384,13 @@
           if (!$linkedButton.hasClass("changing")) {
             $buttonsClosed = $buttonsClosed.add($linkedButton);
             $linkedButton.removeClass("is-active is-hover-instantiated is-click-instantiated").addClass("changing");
+            $this.css('transition-duration', settings.animationDuration + 'ms');
             $this.removeClass("is-active").addClass("disapearing");
             return setTimeout((function() {
               $this.remove();
               delete popoverStates[footnoteID];
               return $linkedButton.removeClass("changing");
-            }), timeout);
+            }), settings.animationDuration);
           }
         });
         return $buttonsClosed;
