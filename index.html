@@ -10,6 +10,7 @@
 </head>
 <body>
     <p>
+        Here are some important footnotes:
         <sup id="fnref:1">
             <a href="#fn:1" rel="footnote">1</a>
         </sup>
@@ -18,7 +19,10 @@
     <div class="footnotes">
         <ol>
             <li class="footnote" id="fn:1">
-                <p>The current date and time is: <span id="current-date-time"></span><a href="#fnref:1" title="return to article"> ↩</a></p>
+                <p>The current date and time is: <span id="current-date-time"></span><br>
+                Latest News:
+                <ul id="news-list"></ul>
+                <a href="#fnref:1" title="return to article"> ↩</a></p>
             </li>
         </ol>
     </div>
@@ -32,6 +36,26 @@
 
         // Insert current date and time into the footnote
         document.getElementById('current-date-time').textContent = getCurrentDateTime();
+
+        // Example news headlines (hardcoded)
+        const newsHeadlines = [
+            "New AI breakthrough in healthcare industry.",
+            "Global markets rebound after initial slump.",
+            "Climate summit 2024 sees new policies introduced."
+        ];
+
+        // Function to display news headlines in the footnote
+        function displayNews() {
+            const newsList = document.getElementById('news-list');
+            newsHeadlines.forEach(function(news) {
+                var listItem = document.createElement('li');
+                listItem.textContent = news;
+                newsList.appendChild(listItem);
+            });
+        }
+
+        // Call the displayNews function to show news
+        displayNews();
 
         // Initialize Bigfoot plugin
         $.bigfoot();
