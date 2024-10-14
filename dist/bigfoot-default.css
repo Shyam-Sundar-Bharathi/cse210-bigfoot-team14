@@ -1,3 +1,13 @@
+body {
+  background-color: #a2a2a0;
+}
+
+h2 {
+  font-family: Audiowide;
+  color: rgb(0, 73, 99);
+  text-align : center;
+}
+
 .bigfoot-footnote__button {
   position: relative;
   z-index: 5;

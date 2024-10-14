@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--head contains the metadata and external resources that will be included in the page but not visible for users-->
+    <head>
+        <title>My Website</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="dist/bigfoot-default.css"> 
+        <script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
+        <script src="dist/bigfoot.js"></script>
+<script>
+    var bigfoot = $.bigfoot();
+</script>
+    </head>
+    <body>
+        <div class="footnotes">
+            <ol>
+                <li class="footnote" id="fn:1"> <p> This is a footnote</p></li>
+                <li class="footnote" id="fn:2"> <p> This is another footnote</p></li>
+                <li class="footnote" id="fn:3"> <p> This is the last footnote</li>
+            </ol>
+        </div>
+
+        <div id="content">
+            <h2> Bigfoot.js plugin </h2>
+            <p>
+                Lorem ipsum Ultrices potenti nisi porta, hac quam feugiat, iaculis nostra himenaeos ultricies mollis sociosqu. 
+                Feugiat potenti orci, facilisis quis, pellentesque suscipit risus molestie taciti lectus ut. Donec consectetur in, 
+                eleifend etiam vulputate vivamus accumsan. 
+                <!--Adding footnote from the list of footnotes above-->
+                <sup id="fnref:1">
+                    <a href="#fn:1" rel="footnote">1</a>
+                </sup>
+            </p>
+            <p>
+                <sup id="fnref:1">
+                    <a href="#fn:2" rel="footnote">1</a>
+                </sup>
+                Arcu velit auctor, bibendum id pharetra accumsan nunc. Dui congue, donec enim faucibus. 
+                Curabitur vulputate pulvinar, suscipit est, convallis duis aliquam sagittis aliquet metus enim. 
+                Rhoncus mauris felis nibh, ultrices quisque curae, sociosqu commodo fermentum eget imperdiet inceptos scelerisque.
+            </p>
+            <p>
+                Tincidunt morbi, per dictum blandit quam. 
+                <sup id="fnref:1">
+                    <a href="#fn:3" rel="footnote">1</a>
+                </sup> Aenean sem accumsan vitae, proin quis nec, risus conubia duis nulla habitant dui. 
+                Magna urna, porta euismod id. Malesuada aliquam lobortis, elementum interdum phasellus lectus. 
+            </p>
+
+        </div>
+    </body>
+</html>
+
+ <!--
+ <p>
+    Lorem Ipsum doloar mit asdasd hasdasdlasd aljsldjlaksdj asdjalksdjlkas
+    <sup id="fnref:1">
+        <a href="#fn:1" rel="footnote">1</a>
+    </sup>
+</p>
+
+<div class="footnotes"><ol>
+    <li class="footnote" id="fn:1">
+        <p>footnote.<a href="#fnref:1" title="return to article"> ↩</a><p>
+    </li>
+</ol></div>
+->
