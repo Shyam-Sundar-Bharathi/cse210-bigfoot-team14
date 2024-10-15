@@ -8,16 +8,41 @@
         <link rel="stylesheet" href="dist/bigfoot-default.css"> 
         <script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
         <script src="dist/bigfoot.js"></script>
-<script>
-    var bigfoot = $.bigfoot();
-</script>
+        <script>
+        var bigfoot = $.bigfoot(
+            {
+                deleteOnUnhover: true,
+                preventPageScroll: false,
+                hoverDelay: 250
+            }
+        );
+        </script>
+        <style>
+            button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            }
+            button:hover {
+            background-color: #45a049;
+            }
+        </style>
     </head>
     <body>
         <div class="footnotes">
+            <!--footnote variables-->
             <ol>
                 <li class="footnote" id="fn:1"> <p> This is a footnote</p></li>
                 <li class="footnote" id="fn:2"> <p> This is another footnote</p></li>
-                <li class="footnote" id="fn:3"> <p> This is the last footnote</li>
+                <li class="footnote" id="fn:3"> <p> This is the last footnote.</li>
             </ol>
         </div>
 
@@ -48,6 +73,26 @@
                 Magna urna, porta euismod id. Malesuada aliquam lobortis, elementum interdum phasellus lectus. 
             </p>
 
+            <div class="changeStyleSheet">
+                <span><button onclick="switchStylesheet(0)">Default</button>
+                <button onclick="switchStylesheet(1)">Numeric</button>
+                <button onclick="switchStylesheet(2)">Bottom</button></span>
+            </div>
+            <script>
+                function switchStylesheet(option) {
+                  const stylesheet = document.getElementById('styleSheet');
+                  
+                  if (option === 1) {
+                    stylesheet.setAttribute('href', 'dist/bigfoot-number.css');
+                  } 
+                  else if(option === 2) {
+                    stylesheet.getElementById('styleSheet').setAttribute('href', 'dist/bigfoot-bottom.css');
+                  }
+                  else{
+                    stylesheet.getElementById('styleSheet').setAttribute('href', 'dist/bigfoot-default.css');
+                  }
+                }
+            </script>
         </div>
     </body>
 </html>
