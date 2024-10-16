@@ -10,6 +10,8 @@
 #      \  \::/      \__\/    \  \::/      \  \:\   \  \::/      \  \::/        \__\/
 #       \__\/                 \__\/        \__\/    \__\/        \__\/
 
+import { clickButton } from '../js/click-button.js'
+
 (($) ->
   $.bigfoot = (options) ->
     bigfoot = undefined
@@ -625,38 +627,38 @@
     # @access private
     # @returns {undefined}
 
-    clickButton = ($button) ->
-      # Cancel focus
-      $button.blur()
+    # clickButton = ($button) ->
+    #   # Cancel focus
+    #   $button.blur()
 
-      # Get the identifier of the footnote
-      dataIdentifier = "data-footnote-identifier='#{$button.attr("data-footnote-identifier")}'"
+    #   # Get the identifier of the footnote
+    #   dataIdentifier = "data-footnote-identifier='#{$button.attr("data-footnote-identifier")}'"
 
-      # Only create footnote if it's not already active
-      # If it's activating, ignore the new activation until the popover is fully formed.
-      if $button.hasClass("changing")
-        return
+    #   # Only create footnote if it's not already active
+    #   # If it's activating, ignore the new activation until the popover is fully formed.
+    #   if $button.hasClass("changing")
+    #     return
 
-      else if !$button.hasClass("is-active")
-        $button.addClass "changing"
-        setTimeout (->
-          $button.removeClass "changing"
-        ), settings.popoverCreateDelay
+    #   else if !$button.hasClass("is-active")
+    #     $button.addClass "changing"
+    #     setTimeout (->
+    #       $button.removeClass "changing"
+    #     ), settings.popoverCreateDelay
 
-        createPopover ".bigfoot-footnote__button[#{dataIdentifier}]"
-        $button.addClass "is-click-instantiated"
+    #     createPopover ".bigfoot-footnote__button[#{dataIdentifier}]"
+    #     $button.addClass "is-click-instantiated"
 
-        # Delete all other footnote popovers if we are only allowing one
-        removePopovers ".bigfoot-footnote:not([#{dataIdentifier}])" unless settings.allowMultipleFN
+    #     # Delete all other footnote popovers if we are only allowing one
+    #     removePopovers ".bigfoot-footnote:not([#{dataIdentifier}])" unless settings.allowMultipleFN
 
-      else
-        # A fully instantiated footnote; either remove it or all footnotes, depending on settings
-        unless settings.allowMultipleFN
-          removePopovers()
-        else
-          removePopovers ".bigfoot-footnote[#{dataIdentifier}]"
+    #   else
+    #     # A fully instantiated footnote; either remove it or all footnotes, depending on settings
+    #     unless settings.allowMultipleFN
+    #       removePopovers()
+    #     else
+    #       removePopovers ".bigfoot-footnote[#{dataIdentifier}]"
 
-      return
+    #   return
 
 
 

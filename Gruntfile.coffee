@@ -84,6 +84,15 @@ module.exports = (grunt) ->
         options:
           spawn: false
 
+    js:
+      files: [
+        {
+          expand: true,
+          cwd: 'src/js',
+          src: ['*.js'],
+          dest: 'dist/js'
+        }
+      ]
 
   # 2. TASKS
   require('load-grunt-tasks') grunt
